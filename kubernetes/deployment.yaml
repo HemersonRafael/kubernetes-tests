@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+  labels:
+    app: api_piadasdofelipe
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api_piadasdofelipe
+  template:
+    metadata:
+      labels:
+        app: api_piadasdofelipe
+    spec:
+      containers:
+      - name: webserverapi
+        image: neylsoncrepalde/api_piadasdofelipe:v7
+        ports:
+        - containerPort: 8087
